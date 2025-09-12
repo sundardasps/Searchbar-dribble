@@ -4,6 +4,7 @@ import { highlightText } from "./HighlightText";
 import { Icon } from "../assets/icons";
 import { useState } from "react";
 import type { RowCardProps, RowType } from "../types";
+import AnimatedCounter from "./AnimatedCounter";
 
 const findRowIcon = (type: RowType) => rowDetails[type]?.icon || null;
 
@@ -56,9 +57,9 @@ function RowCard({ data, searchQury }: RowCardProps) {
           <h1 className="text-black tracking-tighter text-xs md:text-lg">
             {highlightText({ text: data.title, query: searchQury })}
           </h1>
-          {data.type !== "people" && (data.count && data.count > 0 ) && (
+          {data.type !== "people" && data.count && data.count > 0 && (
             <div className="flex items-center gap-1 px-1 rounded bg-gray-200 text-[10px] md:text-xs text-gray-400 capitalize">
-              <span>{data.count}</span>
+              <AnimatedCounter value={data.count} duration={600} />
               <span>{data.type}</span>
             </div>
           )}
@@ -95,7 +96,10 @@ function RowCard({ data, searchQury }: RowCardProps) {
             />
           )}
 
-          <div className="flex items-center cursor-pointer hover:text-black">
+          <div
+            className="flex items-center cursor-pointer hover:text-black"
+            onClick={() => window.open("https://example.com", "_blank")}
+          >
             <Icon.tab className="w-4 h-4 mr-1" />
             <span className="group-hover:underline-animate">New Tab</span>
           </div>

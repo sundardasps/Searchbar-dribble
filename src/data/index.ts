@@ -78,7 +78,7 @@ const data:RowData[] = [
     createdAt: "2025-01-05",
     updatedAt: "2025-01-15",
     count: 0,
-    link: "http://localhost/logo_vector.ai/details",
+    link: "http://dummy/logo_vector.ai/details",
   },
   {
     title: "Craig Mckay", 
@@ -115,7 +115,7 @@ const data:RowData[] = [
     createdAt: "2025-01-20",
     updatedAt: "2025-01-25",
     count: 0,
-    link: "http://localhost/wireframe.sketch/details",
+    link: "http://dummy/wireframe.sketch/details",
   },
   {
     title: "Jonas Kakaroto", 
@@ -134,7 +134,7 @@ const data:RowData[] = [
     createdAt: "2025-04-05",
     updatedAt: "2025-04-10",
     count: 17,
-    link: "http://localhost/presentation_slides.pptx/details",
+    link: "http://dummy/presentation_slides.pptx/details",
   },
   {
     title: "training_video.mov",
@@ -144,7 +144,7 @@ const data:RowData[] = [
     createdAt: "2025-02-01",
     updatedAt: null,
     count: 0,
-    link: "http://localhost/training_video.mov/details",
+    link: "http://dummy/training_video.mov/details",
   },
   {
     title: "Joseph Gonzalez", 
@@ -182,7 +182,7 @@ const data:RowData[] = [
     createdAt: "2025-09-01",
     updatedAt: "2025-09-11",
     count: 4,
-    link: "http://localhost/creative_file.jpg/details",
+    link: "http://dummy/creative_file.jpg/details",
   },
   {
     title: "project_notes.pdf",
@@ -192,7 +192,7 @@ const data:RowData[] = [
     createdAt: "2025-08-20",
     updatedAt: "2025-09-10",
     count: 0,
-    link: "http://localhost/project_notes.pdf/details",
+    link: "http://dummy/project_notes.pdf/details",
   },
   {
     title: "team_meeting.mp4",
@@ -202,7 +202,7 @@ const data:RowData[] = [
     createdAt: "2025-07-14",
     updatedAt: null,
     count: 0,
-    link: "http://localhost/team_meeting.mp4/details",
+    link: "http://dummy/team_meeting.mp4/details",
   },
   {
     title: "holiday_photos.zip",
@@ -212,7 +212,7 @@ const data:RowData[] = [
     createdAt: "2025-03-12",
     updatedAt: "2025-03-18",
     count: 0,
-    link: "http://localhost/holiday_photos.zip/details",
+    link: "http://dummy/holiday_photos.zip/details",
   },
   {
     title: "design_mockup.png",
@@ -222,7 +222,7 @@ const data:RowData[] = [
     createdAt: "2025-06-01",
     updatedAt: "2025-06-15",
     count: 0,
-    link: "http://localhost/design_mockup.png/details",
+    link: "http://dummy/design_mockup.png/details",
   },
   {
     title: "company_budget.xlsx",
@@ -232,7 +232,7 @@ const data:RowData[] = [
     createdAt: "2025-05-10",
     updatedAt: "2025-05-20",
     count: 0,
-    link: "http://localhost/company_budget.xlsx/details",
+    link: "http://dummy/company_budget.xlsx/details",
   },
 ];
 

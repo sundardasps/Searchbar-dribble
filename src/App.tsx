@@ -92,145 +92,168 @@ function App() {
       : searchResults.filter((item) => item.type === selectedTab);
 
   return (
-    <div className="flex min-h-screen w-screen items-center justify-center p-4">
-      <div
-        ref={contentRef}
-        style={{ height, transition: "height 1s ease" }}
-        className="md:min-w-md border rounded-xl bg-white border-gray-200 shadow transition-all duration-1000 ease-in-out overflow-hidden"
-      >
-        {/* 🔹 Search Input */}
-        <form className="flex gap-2 items-center p-4 text-[11px] md:text-xl">
-          {loading ? (
-            <Icon.loader className="text-gray-400 min-w-6 min-h-6 animate-spin" />
-          ) : (
-            <Icon.search className="text-gray-400 min-w-6 min-h-6" />
-          )}
+    <div
+      className="flex min-h-screen w-screen items-start justify-center p-4 md:p-0 relative "
+      style={{
+        backgroundImage:
+          "url('https://framerusercontent.com/images/xRWyUsRfgGJ6Aa1H0rJNmK0OTOg.png?scale-down-to=1024')",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="backdrop-blur-md  absolute w-full  h-full" />
+        <div
+          ref={contentRef}
+          style={{ height, transition: "height 1s ease" }}
+          className="md:min-w-lg  rounded-xl bg-white border-gray-200 shadow-md transition-all duration-1000 ease-in-out overflow-hidden mt-20 z-10 "
+        >
+          {/* 🔹 Search Input */}
+          <form className="flex gap-2 items-center p-4 text-[11px] md:text-xl">
+            {loading ? (
+              <Icon.loader className="text-gray-400 min-w-6 min-h-6 animate-spin" />
+            ) : (
+              <Icon.search className="text-gray-400 min-w-6 min-h-6" />
+            )}
 
-          <input
-            type="text"
-            ref={inputRef}
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Searching is easier"
-            className={`w-full outline-none font-bold ${
-              search ? "text-black" : "text-gray-600"
-            }`}
-          />
+            <input
+              type="text"
+              ref={inputRef}
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Searching is easier"
+              className={`w-full outline-none  ${
+                search ? "text-black" : "text-gray-600"
+              }`}
+            />
 
-          {search ? (
-            <span
-              onClick={() => setSearch("")}
-              className="text-gray-600 text-xs md:text-sm ml-auto cursor-pointer opacity-50 hover:opacity-100 transition-opacity duration-500 underline-animate"
-            >
-              Clear
-            </span>
-          ) : (
-            <div className="flex items-center gap-1 text-gray-400 text-[10px] md:text-sm">
-              <div className="w-7 h-8 flex justify-center items-center border rounded-xl border-gray-400">
-                s
-              </div>
-              <span className="whitespace-nowrap">quick access</span>
-            </div>
-          )}
-        </form>
-
-        {searchQuery && (
-          <>
-            {/* 🔹 Tabs */}
-            <div className="flex justify-between px-4 border-b border-gray-300 relative">
-              <ul className="flex overflow-auto no-scrollbar">
-                {show.map((item) => (
-                  <li
-                    key={item.title}
-                    onClick={() => setSelectedTab(item.title)}
-                    className={`flex items-end justify-center gap-1 text-xs font-extralight cursor-pointer p-2 h-8 ${
-                      selectedTab === item.title
-                        ? "border-b-2 border-black text-black font-bold"
-                        : "border-b-2 border-transparent text-gray-400"
-                    } transition-all duration-700 ease-in-out`}
-                  >
-                    {item.icon && <item.icon className="w-4 h-4" />}
-                    <span className="capitalize text-xs">{item.title}</span>
-                    <span className="flex items-center justify-center bg-gray-100 rounded px-1">
-                      {getTabCount(item.title)}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* 🔹 Settings Icon */}
-              <div className="flex items-center justify-center rounded p-1">
-                <Icon.settings
-                  onClick={() => setOpenDropdown((pre) => !pre)}
-                  className={`w-4 h-4 transition duration-1000 cursor-pointer ${
-                    openDropdown
-                      ? "rotate-90 text-gray-900 scale-105"
-                      : "text-gray-400"
-                  }`}
-                />
-              </div>
-
-              {/* 🔹 Dropdown */}
-              <div
-                className={`absolute right-4 top-9 border rounded-xl bg-white z-50 border-gray-200 shadow transition-all duration-500 ease-in-out ${
-                  openDropdown
-                    ? "opacity-100 translate-y-0 pointer-events-auto"
-                    : "opacity-0 -translate-y-5 pointer-events-none"
-                }`}
+            {search ? (
+              <span
+                onClick={() => setSearch("")}
+                className="text-gray-600 text-xs md:text-sm ml-auto cursor-pointer opacity-50 hover:opacity-100 transition-opacity duration-500 underline-animate"
               >
-                {tabs.slice(1).map((item) => (
-                  <li
-                    key={item.title}
-                    onClick={() => handleShow(item)}
-                    className="flex items-center w-full gap-1 text-xs font-extralight text-gray-400 cursor-pointer p-2"
-                  >
-                    {item.icon && <item.icon className="w-4 h-4" />}
-                    <span
-                      className={`mr-6 capitalize ${
-                        show.some((tab) => tab.title === item.title)
-                          ? "text-black font-extrabold"
-                          : ""
-                      }`}
-                    >
-                      {item.title}
-                    </span>
-                    {show.some((tab) => tab.title === item.title) ? (
-                      <Icon.toggleOn className="text-gray-900 h-5 w-5 ml-auto" />
-                    ) : (
-                      <Icon.toggleOff className="text-gray-400 h-5 w-5 ml-auto hover:text-black" />
-                    )}
-                  </li>
-                ))}
+                Clear
+              </span>
+            ) : (
+              <div className="flex items-center gap-1 text-gray-400 text-[10px] md:text-sm">
+                <div className="w-7 h-8 flex justify-center items-center border rounded-xl border-gray-400">
+                  s
+                </div>
+                <span className="whitespace-nowrap">quick access</span>
               </div>
-            </div>
+            )}
+          </form>
 
-            {/* 🔹 Results */}
-            <div className="p-4 max-h-96 min-h-96 overflow-auto no-scrollbar">
-              {loading ? (
-                <div className="flex flex-col divide-y divide-gray-300">
-                  {Array.from({ length: 10 }).map((_, i) => (
-                    <RowCardSkeleton key={i} />
+          {searchQuery && (
+            <>
+              {/* 🔹 Tabs */}
+              <div className="flex justify-between px-4 border-b border-gray-200 relative">
+                <ul className="flex overflow-auto no-scrollbar">
+                  {show.map((item) => (
+                    <li
+                      key={item.title}
+                      onClick={() => setSelectedTab(item.title)}
+                      className={`flex items-end justify-center gap-1 text-xs font-extralight cursor-pointer p-2 h-8 ${
+                        selectedTab === item.title
+                          ? "border-b-2 border-black text-black "
+                          : "border-b-2 border-transparent text-gray-400"
+                      } transition-all duration-700 ease-in-out`}
+                    >
+                      {item.icon && <item.icon className="w-4 h-4" />}
+                      <span className="capitalize text-xs font-semibold">{item.title}</span>
+                      <span className="flex items-center justify-center bg-gray-100 rounded px-1">
+                        {getTabCount(item.title)}
+                      </span>
+                    </li>
                   ))}
-                </div>
-              ) : filteredData.length > 0 ? (
-                <div className="flex flex-col divide-y divide-gray-300">
-                  {filteredData.map((rowData, index) => (
-                    <RowCard
-                      data={rowData}
-                      searchQury={searchQuery}
-                      key={index}
+                </ul>
+
+                {/* 🔹 Settings + Dropdown Wrapper */}
+                <div
+                  className="relative"
+                  onMouseLeave={() => setOpenDropdown(false)}
+                >
+                  {/* Settings Icon */}
+                  <div className="flex items-center justify-center rounded p-1">
+                    <Icon.settings
+                      onClick={() => setOpenDropdown((pre) => !pre)}
+                      className={`w-4 h-4 transition duration-1000 cursor-pointer ${
+                        openDropdown
+                          ? "rotate-90 text-gray-900 scale-105"
+                          : "text-gray-400"
+                      }`}
                     />
-                  ))}
+                  </div>
+
+                  {/* Dropdown */}
+                  <div
+                    className={`absolute right-0 top-9  rounded-xl bg-white z-50 border-gray-200 border shadow-md transition-all duration-500 ease-in-out ${
+                      openDropdown
+                        ? "opacity-100 translate-y-0 pointer-events-auto"
+                        : "opacity-0 -translate-y-5 pointer-events-none"
+                    }`}
+                  >
+                    {tabs.slice(1).map((item) => (
+                      <li
+                        key={item.title}
+                        onClick={() => handleShow(item)}
+                        className="flex items-center w-full gap-1 text-xs font-extralight text-gray-400 cursor-pointer p-2"
+                      >
+                        {item.icon && <item.icon className="w-4 h-4" />}
+                        <span
+                          className={`mr-6 capitalize font-semibold ${
+                            show.some((tab) => tab.title === item.title)
+                              ? "text-black "
+                              : ""
+                          }`}
+                        >
+                          {item.title}
+                        </span>
+                        {show.some((tab) => tab.title === item.title) ? (
+                          <Icon.toggleOn className="text-gray-900 h-5 w-5 ml-auto" />
+                        ) : (
+                          <Icon.toggleOff className="text-gray-400 h-5 w-5 ml-auto hover:text-black" />
+                        )}
+                      </li>
+                    ))}
+                  </div>
                 </div>
-              ) : (
-                <p className="text-gray-400 text-center text-xs py-4">
-                  No data found.
-                </p>
-              )}
-            </div>
-          </>
-        )}
-      </div>
+              </div>
+
+              {/* 🔹 Results */}
+              <div className="p-4 max-h-96 min-h-96 overflow-auto no-scrollbar">
+                {loading ? (
+                  <div className="flex flex-col divide-y divide-gray-300">
+                    {Array.from({ length: 10 }).map((_, i) => (
+                      <RowCardSkeleton key={i} />
+                    ))}
+                  </div>
+                ) : filteredData.length > 0 ? (
+                  <div className="flex flex-col divide-y divide-gray-200">
+                    {filteredData.map((rowData, index) => (
+                      <RowCard
+                        data={rowData}
+                        searchQury={searchQuery}
+                        key={index}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center text-gray-900 justify-center my-20">
+                    <Icon.notFound className="text-gray-400 w-10 h-10" />
+                    <p className="text-gray-900 text-center text-md ">
+                      No results for "{searchQuery}".
+                    </p>
+                    <span className="text-xs text-gray-400 ">
+                      Try searching for something else.
+                    </span>
+                  </div>
+                )}
+              </div>
+            </>
+          )}
+        </div>
+     
     </div>
   );
 }

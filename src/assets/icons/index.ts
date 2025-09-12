@@ -7,7 +7,7 @@ import { FaToggleOn } from "react-icons/fa";
 import { FaToggleOff } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoPlay } from "react-icons/io5";
-import { MdFolder } from "react-icons/md";
+import { MdFolder, MdOutlineSearchOff } from "react-icons/md";
 import { FaImage } from "react-icons/fa6";
 import { RiLoader4Line } from "react-icons/ri";
 import { HiMiniLink } from "react-icons/hi2";
@@ -30,6 +30,7 @@ const Icon = {
   link: HiMiniLink,
   tab: MdOutlineOpenInNew,
   mark: IoCheckmarkDoneOutline,
+  notFound: MdOutlineSearchOff,
 };
 
 export { Icon };
