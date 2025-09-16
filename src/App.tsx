@@ -171,10 +171,7 @@ function App() {
               </ul>
 
               {/* 🔹 Settings + Dropdown Wrapper */}
-              <div
-                className="relative"
-                onMouseLeave={() => setOpenDropdown(false)}
-              >
+              <div className="relative">
                 {/* Settings Icon */}
                 <div className="flex items-center justify-center rounded p-1">
                   <Icon.settings
@@ -189,6 +186,7 @@ function App() {
 
                 {/* Dropdown */}
                 <div
+                  onMouseLeave={() => setOpenDropdown(false)}
                   className={`absolute right-0 top-9  rounded-xl bg-white z-50 border-gray-200 border shadow-md transition-all duration-300 ease-in-out ${
                     openDropdown
                       ? "opacity-100 translate-y-0 pointer-events-auto"
